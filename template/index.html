@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web test</title>
+</head>
+<body>
+    <button onclick="sayHello()">Click Me</button>
+    <p id="result"></p>
+    <script>
+        function sayHello() {
+            fetch("/hello")                // Call Go backend
+                .then(response => response.text())
+                .then(text => {
+                    document.getElementById("result").innerText = text;
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+        }
+    </script>
+</body>
+</html>
