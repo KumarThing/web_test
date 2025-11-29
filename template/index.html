@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web server testing</title>
+    <link rel="stylesheet" href="/static/style.css">
    
 </head>
 <body>
@@ -17,7 +18,22 @@
     
     <hr>
     {{ if .Name }}
-    <h2>Hello {{ .Name }}! Welcome to GO.</h2>
+    <h2>Hello {{ .Name }}! Welcome to GO. <br>
+
+        <p>Welcome to calculator from Go.</p>
+
+        <form action="/" method="POST">
+            <input type="hidden" name="username" value="{{ .Name }}">
+            <input type="number" name="num1" placeholder="First Number" required>
+            <input type="text" name="operation" placeholder="Operation ( +, - , *, /)" required>
+            <input type="number" name="num2" placeholder="Second Number" required>
+            <button type="submit">Calculate</button>
+      </form>
+      <hr>
+      {{ if .Result}}
+      <p> Result : {{ .Result}}</p>
+      {{ end }}
+    </h2>
     {{ else }}
     <h2>Type your name and press enter</h2>
     {{ end }}
