@@ -2,26 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Go Web</title>
+    <title>Web server testing</title>
+   
 </head>
 <body>
-
-    <h1>Welcome to Go Web Server</h1>
-
-    <form action="/" method="POST">
-        <label>Your Name:</label>
-        <input type="text" name="username" placeholder="Enter your name">
+    <h1>Welcome to Go language web server.</h1>
+    <form action="/" method="POST"> 
+        <p>Please enter your name</p>
+        <input type="text" name="username" placeholder="Enter your name." value="{{ .Name }}">
         <button type="submit">Enter</button>
     </form>
-
+    
     <hr>
-
     {{ if .Name }}
-        <h2>Hello {{ .Name }}! Welcome to Go.</h2>
+    <h2>Hello {{ .Name }}! Welcome to GO.</h2>
     {{ else }}
-        <p>Type your name above to get a greeting.</p>
+    <h2>Type your name and press enter</h2>
     {{ end }}
-
+    
 </body>
 </html>
